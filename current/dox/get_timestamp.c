@@ -6,10 +6,10 @@ int main(void)
 urg_t urg;
 long *length_data = NULL;
 int ret;
-// \~japanese ƒ^ƒCƒ€ƒXƒ^ƒ“ƒv‚Ìæ“¾
+// \~japanese ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—ã®å–å¾—
 // \~english Gets timestamp values
 
-// \~japanese urg_get_distance() ŠÖ”‚É•Ï”‚ğ—^‚¦Aƒ^ƒCƒ€ƒXƒ^ƒ“ƒv‚ğæ“¾‚·‚éB
+// \~japanese urg_get_distance() é–¢æ•°ã«å¤‰æ•°ã‚’ä¸ãˆã€ã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—ã‚’å–å¾—ã™ã‚‹ã€‚
 // \~english Uses the urg_get_distance() function and returns the timestamp values for each scan
 
 const int scan_times = 123;
@@ -17,7 +17,7 @@ int length_data_size;
 long timestamp;
 int i;
 
-// \~japanese ƒZƒ“ƒT‚©‚ç‹——£ƒf[ƒ^‚ğæ“¾‚·‚éB
+// \~japanese ã‚»ãƒ³ã‚µã‹ã‚‰è·é›¢ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
 // \~english Starts range data measurement
 ret = urg_start_measurement(&urg, URG_DISTANCE, scan_times, 0);
 // \todo check error code
@@ -26,7 +26,7 @@ for (i = 0; i < scan_times; ++i) {
     length_data_size = urg_get_distance(&urg, length_data, &timestamp);
     // \todo process length_data array
 
-    // \~japanese æ“¾‚µ‚½ƒ^ƒCƒ€ƒXƒ^ƒ“ƒv‚ğo—Í‚·‚é
+    // \~japanese å–å¾—ã—ãŸã‚¿ã‚¤ãƒ ã‚¹ã‚¿ãƒ³ãƒ—ã‚’å‡ºåŠ›ã™ã‚‹
     // \~english Outputs the received timestamp value
     printf("%ld\n", timestamp);
 }

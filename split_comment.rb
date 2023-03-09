@@ -1,10 +1,9 @@
 #!/usr/bin/env ruby
-# -*- coding: cp932 -*-
 
-# Doxygen ƒRƒƒ“ƒg‚É]‚Á‚Ä‘ÎÛƒtƒ@ƒCƒ‹‚ğƒRƒs[‚·‚é‚Æ‚«‚ÌƒRƒƒ“ƒgo—Í‚ğ’²®‚·‚é
+# Doxygen ã‚³ãƒ¡ãƒ³ãƒˆã«å¾“ã£ã¦å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹ã¨ãã®ã‚³ãƒ¡ãƒ³ãƒˆå‡ºåŠ›ã‚’èª¿æ•´ã™ã‚‹
 
 #$KCODE = "SJIS"
-
+Encoding.default_external = "utf-8"
 
 if ARGV.empty?
   print "usage: \n" +
@@ -18,7 +17,7 @@ if ARGV.empty?
 end
 
 
-# ÅŒã‚Ìˆø”‚ªƒfƒBƒŒƒNƒgƒŠ‚Å‚È‚¯‚ê‚ÎAƒGƒ‰[ƒƒbƒZ[ƒW‚ğ•Ô‚·
+# æœ€å¾Œã®å¼•æ•°ãŒãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ãªã‘ã‚Œã°ã€ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”ã™
 output_directory = ARGV.pop
 output_mode = ARGV.shift
 if not FileTest::directory?(output_directory)
@@ -30,7 +29,7 @@ target_files = ARGV
 
 def split_single_line(line, mode, output_mode)
 
-  # Œ»İ‚Ìƒ‚[ƒh‚É]‚Á‚½ƒRƒƒ“ƒg‚Ì‚İ‚ğo—Í‚·‚é
+  # ç¾åœ¨ã®ãƒ¢ãƒ¼ãƒ‰ã«å¾“ã£ãŸã‚³ãƒ¡ãƒ³ãƒˆã®ã¿ã‚’å‡ºåŠ›ã™ã‚‹
   if output_mode == "-e" then
     #if line =~ /\\\~japanese .+ ([\*\\])/
     if line =~ /\\\~japanese .+?( \\\~english )/
@@ -76,7 +75,7 @@ def remove_matched_word(line)
 end
 
 
-# Doxygen ƒRƒƒ“ƒg‚É]‚Á‚Ä‘ÎÛƒtƒ@ƒCƒ‹‚ğƒRƒs[‚·‚é‚Æ‚«‚ÌƒRƒƒ“ƒgo—Í‚ğ’²®‚·‚é
+# Doxygen ã‚³ãƒ¡ãƒ³ãƒˆã«å¾“ã£ã¦å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã™ã‚‹ã¨ãã®ã‚³ãƒ¡ãƒ³ãƒˆå‡ºåŠ›ã‚’èª¿æ•´ã™ã‚‹
 def split_comment(file_name, output_mode)
   lines = ""
   mode = "both"
@@ -85,10 +84,11 @@ def split_comment(file_name, output_mode)
   p file_name
   File.open(file_name) { |fd|
     fd.each { |line|
-      line.force_encoding("cp932")
+      line.force_encoding("utf-8")
+      #line.force_encoding("cp932")
 
       if is_comment
-        # ƒRƒƒ“ƒg’†
+        # ã‚³ãƒ¡ãƒ³ãƒˆä¸­
 #         case line
 #         when /\\\~japanese/
 #           mode = "japanese"
@@ -128,7 +128,7 @@ def split_comment(file_name, output_mode)
           is_comment = false
           lines += line
         else
-          # ƒ‚[ƒh‚É]‚Á‚ÄƒRƒƒ“ƒg‚ğo—Í‚·‚é
+          # ãƒ¢ãƒ¼ãƒ‰ã«å¾“ã£ã¦ã‚³ãƒ¡ãƒ³ãƒˆã‚’å‡ºåŠ›ã™ã‚‹
           if mode == "japanese" and output_mode == "-j"
             lines += line
           elsif mode == "english" and output_mode == "-e"
@@ -138,7 +138,7 @@ def split_comment(file_name, output_mode)
           end
         end
       else
-        # ƒ\[ƒXƒR[ƒh’†
+        # ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­
         if line =~ /\/\*/
           if line =~ /\*\//
             is_comment = false
@@ -148,7 +148,7 @@ def split_comment(file_name, output_mode)
             mode = "both"
           end
         else
-          # // ƒRƒƒ“ƒg‚Ìê‡‚Ìˆ—
+          # // ã‚³ãƒ¡ãƒ³ãƒˆã®å ´åˆã®å‡¦ç†
           case line
           when /\\\~japanese/
             line = split_single_line(line, mode, output_mode)
@@ -165,7 +165,7 @@ def split_comment(file_name, output_mode)
 end
 
 
-# ‘ÎÛ‚Ìƒtƒ@ƒCƒ‹‚ğˆ—‚µ‚Â‚ÂAw’è‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠ‚ÉƒRƒs[‚·‚é
+# å¯¾è±¡ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã—ã¤ã¤ã€æŒ‡å®šã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
 target_files.each { |file_name|
   converted_lines = split_comment(file_name, output_mode)
   converted_file_name = output_directory + "/" + File.basename(file_name)

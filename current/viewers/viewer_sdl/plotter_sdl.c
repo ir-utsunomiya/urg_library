@@ -3,8 +3,8 @@
   \brief Plotter (SDL)
 
   \~japanese
-  \todo glDrawElements() ‚ğg‚¤‚æ‚¤‚ÉC³‚·‚é
-  \todo MAX_POINTS ‚Ì 1081 ‚Ì”‚ğƒZƒ“ƒT‚©‚ç‚Ìî•ñ‚Å‰Šú‰»‚·‚é
+  \todo glDrawElements() ã‚’ä½¿ã†ã‚ˆã†ã«ä¿®æ­£ã™ã‚‹
+  \todo MAX_POINTS ã® 1081 ã®æ•°ã‚’ã‚»ãƒ³ã‚µã‹ã‚‰ã®æƒ…å ±ã§åˆæœŸåŒ–ã™ã‚‹
   \~english
   \todo Fix the code to use glDrawElements()
   \todo Use the sensor information instead of MAX_POINTS
@@ -173,7 +173,7 @@ bool plotter_initialize(int data_size)
         return false;
     }
 
-    // \~japanese ‰æ–Ê‚Ìì¬
+    // \~japanese ç”»é¢ã®ä½œæˆ
     // \~english Prepares the display screeen
     opengl_initialize();
     screen_ = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_OPENGL);
@@ -182,7 +182,7 @@ bool plotter_initialize(int data_size)
     }
     opengl_setup();
 
-    // \~japanese •`‰æİ’è
+    // \~japanese æç”»è¨­å®š
     // \~english Prepares for drawing
     glPointSize(2.0);
 #if defined(USE_GL_2)
@@ -190,7 +190,7 @@ bool plotter_initialize(int data_size)
 #endif
     enter2D();
 
-    // \~japanese ƒf[ƒ^‚ÌŠm•Û
+    // \~japanese ãƒ‡ãƒ¼ã‚¿ã®ç¢ºä¿
     // \~english Reserves data
 
     return true;
@@ -212,7 +212,7 @@ void plotter_clear(void)
 
 void plotter_swap(void)
 {
-    // \~japanese •\¦‚ğ“ü‚êŠ·‚¦‚é‚Æ‚«‚ÉA‚Ü‚¾•`‰æ‚µ‚Ä‚¢‚È‚¢“à—e‚ğ•`‰æ‚·‚é
+    // \~japanese è¡¨ç¤ºã‚’å…¥ã‚Œæ›ãˆã‚‹ã¨ãã«ã€ã¾ã æç”»ã—ã¦ã„ãªã„å†…å®¹ã‚’æç”»ã™ã‚‹
     // \~english Before swapping buffers, finish any pending drawing
     draw_points();
 
@@ -222,7 +222,7 @@ void plotter_swap(void)
 
 void plotter_set_color(unsigned char r, unsigned g, unsigned b)
 {
-    // \~japanese F‚ğ•ÏX‚·‚é‚Æ‚«‚ÉA‚Ü‚Æ‚ß‚Ä•`‰æ‚ğs‚¤
+    // \~japanese è‰²ã‚’å¤‰æ›´ã™ã‚‹ã¨ãã«ã€ã¾ã¨ã‚ã¦æç”»ã‚’è¡Œã†
     // \~english Before changing color, finish any pending drawing
     draw_points();
 
@@ -278,7 +278,7 @@ bool plotter_is_quit(void)
         }
     }
 
-    // \~japanese •`‰æ‚ÌŠg‘å—¦‚ğ•ÏX‚·‚é
+    // \~japanese æç”»ã®æ‹¡å¤§ç‡ã‚’å¤‰æ›´ã™ã‚‹
     // \~english Changes the zooming rate
     while (magnify < 0) {
         draw_magnify_ *= 0.90;

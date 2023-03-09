@@ -137,7 +137,7 @@ static void plot_data(urg_t *urg,
 {
     plotter_clear();
 
-    // \~japanese ‹——£
+    // \~japanese è·é›¢
     plotter_set_color(0x00, 0xff, 0xff);
     plot_data_point(urg, data, NULL, data_n, is_multiecho, 0);
 
@@ -150,7 +150,7 @@ static void plot_data(urg_t *urg,
     }
 
     if (intensity) {
-        // \~japanese  ‹­“x
+        // \~japanese  å¼·åº¦
         plotter_set_color(0xff, 0xff, 0x00);
         plot_data_point(urg, NULL, intensity, data_n, is_multiecho, 0);
 
@@ -178,11 +178,11 @@ int main(int argc, char *argv[])
     int data_size;
 
 
-    // \~japanese  ˆø”‚Ì‰ğÍ
+    // \~japanese  å¼•æ•°ã®è§£æ
     // \~english Analyzes the arguments
     parse_args(&mode, argc, argv);
 
-    // \~japanese  URG ‚ÉÚ‘±
+    // \~japanese  URG ã«æ¥ç¶š
     // \~english Connects to the URG
     if (urg_open(&urg, mode.connection_type,
                  mode.device, mode.baudrate_or_port)) {
@@ -190,7 +190,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // \~japanese  ƒf[ƒ^æ“¾‚Ì€”õ
+    // \~japanese  ãƒ‡ãƒ¼ã‚¿å–å¾—ã®æº–å‚™
     // \~english Prepares for measuremment data reading
     data_size = urg_max_data_size(&urg);
     if (mode.is_multiecho) {
@@ -201,13 +201,13 @@ int main(int argc, char *argv[])
         intensity = malloc(data_size * sizeof(intensity[0]));
     }
 
-    // \~japanese  ‰æ–Ê‚Ìì¬
+    // \~japanese  ç”»é¢ã®ä½œæˆ
     // \~english Perpares the plot screen
     if (!plotter_initialize(data_size * ((mode.is_intensity) ? 2 : 1))) {
         return 1;
     }
 
-    // \~japanese  ƒf[ƒ^‚Ìæ“¾‚Æ•`‰æ
+    // \~japanese  ãƒ‡ãƒ¼ã‚¿ã®å–å¾—ã¨æç”»
     // \~english Gets and displays measurement data
     urg_start_measurement(&urg, mode.measurement_type, URG_SCAN_INFINITY, 0);
     while (1) {
@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    // \~japanese  ƒŠƒ\[ƒX‚Ì‰ğ•ú
+    // \~japanese  ãƒªã‚½ãƒ¼ã‚¹ã®è§£æ”¾
     // \~english Release resources
     plotter_terminate();
     free(intensity);

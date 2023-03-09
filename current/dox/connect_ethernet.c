@@ -5,13 +5,13 @@ int main(void)
 {
     urg_t urg;
     int ret;
-// \~japanese ƒC[ƒT[ƒlƒbƒgÚ‘±‚Å‚ÌƒZƒ“ƒT‚Æ‚ÌÚ‘±‚Æ‹——£ƒf[ƒ^‚Ìæ“¾
+// \~japanese ã‚¤ãƒ¼ã‚µãƒ¼ãƒãƒƒãƒˆæ¥ç¶šã§ã®ã‚»ãƒ³ã‚µã¨ã®æ¥ç¶šã¨è·é›¢ãƒ‡ãƒ¼ã‚¿ã®å–å¾—
 // \~english Connects to the sensor via Ethernet and receives range data
 
 const char connect_address[] = "192.168.0.10";
 const long connect_port = 10940;
 
-// \~japanese ƒZƒ“ƒT‚É‘Î‚µ‚ÄÚ‘±‚ğs‚¤B
+// \~japanese ã‚»ãƒ³ã‚µã«å¯¾ã—ã¦æ¥ç¶šã‚’è¡Œã†ã€‚
 // \~english Connects to the sensor
 ret = urg_open(&urg, URG_ETHERNET, connect_address, connect_port);
 // \todo check error code

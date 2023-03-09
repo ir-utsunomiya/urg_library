@@ -6,19 +6,19 @@ int main(void)
     urg_t urg;
     int ret;
     long *length_data = NULL;
-// \~japanese scan_times ‰ñ‚ÌƒXƒLƒƒƒ“ƒf[ƒ^‚ğæ“¾
+// \~japanese scan_times å›ã®ã‚¹ã‚­ãƒ£ãƒ³ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
 // \~english Obtains measurement data for scan_times scans
 
-// \~japanese urg_start_measurement() ŠÖ”‚ÅƒXƒLƒƒƒ“‰ñ”‚ğw’è‚µ
+// \~japanese urg_start_measurement() é–¢æ•°ã§ã‚¹ã‚­ãƒ£ãƒ³å›æ•°ã‚’æŒ‡å®šã—
 // \~english Uses urg_start_measurement() function to define the number of scans
-// \~japanese urg_get_distance() ŠÖ”‚Åw’è‚µ‚½‰ñ”‚¾‚¯ƒf[ƒ^‚ğóM‚·‚éB
+// \~japanese urg_get_distance() é–¢æ•°ã§æŒ‡å®šã—ãŸå›æ•°ã ã‘ãƒ‡ãƒ¼ã‚¿ã‚’å—ä¿¡ã™ã‚‹ã€‚
 // \~english Uses urg_get_distance() function to receive the measurement data
 
 const int scan_times = 123;
 int length_data_size;
 int i;
 
-// \~japanese ƒZƒ“ƒT‚©‚ç‹——£ƒf[ƒ^‚ğæ“¾‚·‚éB
+// \~japanese ã‚»ãƒ³ã‚µã‹ã‚‰è·é›¢ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
 // \~english Starts range data measurement
 ret = urg_start_measurement(&urg, URG_DISTANCE, scan_times, 0);
 // \todo check error code

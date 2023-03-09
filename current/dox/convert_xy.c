@@ -9,12 +9,12 @@ urg_t urg;
 long *length_data = NULL;
 int length_data_size;
 int i;
-// \~japanese ‹——£ƒf[ƒ^‚ğ X-Y À•WŒn‚É•ÏŠ·‚µ‚Ä•\¦‚·‚é
+// \~japanese è·é›¢ãƒ‡ãƒ¼ã‚¿ã‚’ X-Y åº§æ¨™ç³»ã«å¤‰æ›ã—ã¦è¡¨ç¤ºã™ã‚‹
 // \~english Converts data to X-Y coordinates and displays it
 
 length_data_size = urg_get_distance(&urg, length_data, NULL);
 for (i = 0; i < length_data_size; ++i) {
-    // \~japanese ‚»‚Ì‹——£ƒf[ƒ^‚Ìƒ‰ƒWƒAƒ“Šp“x‚ğ‹‚ßAX, Y ‚ÌÀ•W’l‚ğŒvZ‚·‚é
+    // \~japanese ãã®è·é›¢ãƒ‡ãƒ¼ã‚¿ã®ãƒ©ã‚¸ã‚¢ãƒ³è§’åº¦ã‚’æ±‚ã‚ã€X, Y ã®åº§æ¨™å€¤ã‚’è¨ˆç®—ã™ã‚‹
     // \~english Gets the angle in radians for range data, and convert to X-Y coordinates
     double radian;
     long length;

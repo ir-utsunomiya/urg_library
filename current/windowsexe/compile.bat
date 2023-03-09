@@ -54,13 +54,13 @@ cl.exe /MD /EHsc /Fesensor_parameter_cpp.exe -I../include/cpp ../samples/cpp/sen
 
 cl.exe /MD /EHsc /Fesync_time_stamp_cpp.exe -I../include/cpp ../samples/cpp/sync_time_stamp.cpp Connection_information.obj urg_cpp.lib ws2_32.lib setupapi.lib
 
-echo ƒrƒ‹ƒh‚ªŠ®—¹‚µ‚Ü‚µ‚½BI—¹‚µ‚Ü‚·B
+echo ãƒ“ãƒ«ãƒ‰ãŒå®Œäº†ã—ã¾ã—ãŸã€‚çµ‚äº†ã—ã¾ã™ã€‚
 echo Built completed successfully.
 set /p TMP=""
 exit /b
 
 :end
-echo vsvars32.bat ‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñBI—¹‚µ‚Ü‚·B
+echo vsvars32.bat ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚çµ‚äº†ã—ã¾ã™ã€‚
 echo Error: vsvars32.bat could not be found
 set /p TMP=""
 exit /b
